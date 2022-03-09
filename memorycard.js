@@ -95,9 +95,12 @@ var addCard = function(event){
     document.getElementsByName('question')[0].value = '';
     let answer = document.getElementsByName('answer')[0].value;
     document.getElementsByName('answer')[0].value = '';
-    cards.push({
-        question: question,
-    answer: answer,
+    if (question=='' || answer==''){
+        document.getElementById('info').innerHTML = 'Write somthing then try again!';
+    } else {
+        cards.push({
+            question: "Demo question",
+    answer: "Demo answer",
     cardElementQuestion: function(){ return `<div onclick="showAnswer(event)" class="col gy-4">
     <div class="p-4 border bg-light" id="my-card">
       <div id="icon">
@@ -111,11 +114,13 @@ var addCard = function(event){
         <i class="fa-solid fa-pen-to-square"></i>
         <i onclick="remove(event)" class="fas fa-regular fa-xmark"></i>
       </div>${this.answer}</div>
-    </div>`}
-    });
-    document.getElementById('done').style.display = 'block';
-    setTimeout(hideDone,3000)
-    start()
+    </div>`
+        }});
+        document.getElementById('done').style.display = 'block';
+        document.getElementById('info').innerHTML = ''
+        setTimeout(hideDone,3000)
+        start()
+    }
 }
 
 var start = function() {

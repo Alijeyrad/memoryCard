@@ -62,7 +62,11 @@ body {
     }
 }
 
-h5 {
+#done {
     color: rgba(34, 207, 34, 0.859);
     display: none;
+}
+
+#info {
+    color: rgb(175, 31, 31);
 }
