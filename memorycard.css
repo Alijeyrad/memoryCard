@@ -1,0 +1,55 @@
+
+.container {
+  text-align: center;
+}
+
+#my-card {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+}
+
+#row {
+    height: 100vh;
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.form-floating {
+    color: black;
+}
+
+#icon {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    flex-direction: row;
+    display: none;
+}
+
+#icon i:hover {
+    opacity: 1;
+}
+
+#my-card:hover #icon {
+    display: flex;
+}
+
+#icon i {
+    padding-left: 10px;
+    opacity: 0.8;
+}
+
+.fa-pen-to-square {
+    font-size: 19px;
+}
+
+.fa-xmark {
+    color: rgb(175, 31, 31);
+    font-size: 23px;
+}
