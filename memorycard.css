@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  
+  max-width: 408px;
 }
 
 #row {
@@ -60,4 +60,9 @@ body {
     #icon {
         display: flex;
     }
+}
+
+h5 {
+    color: rgba(34, 207, 34, 0.859);
+    display: none;
 }

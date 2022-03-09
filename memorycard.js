@@ -67,9 +67,9 @@ let showAnswer = function(event){
         }
     }
     if(question){
-        event.target.outerHTML = cards[tar].cardElementAnswer()
+        event.target.outerHTML = cards[tar].cardElementAnswer();
     } else {
-        event.target.outerHTML = cards[tar].cardElementQuestion()
+        event.target.outerHTML = cards[tar].cardElementQuestion();
     }
     
 }
@@ -85,6 +85,38 @@ var remove = function(event){
     start();
 }
 
+var hideDone = function(){
+    document.getElementById('done').style.display = 'none';
+}
+
+var addCard = function(event){
+    event.preventDefault();
+    let question = document.getElementsByName('question')[0].value;
+    document.getElementsByName('question')[0].value = '';
+    let answer = document.getElementsByName('answer')[0].value;
+    document.getElementsByName('answer')[0].value = '';
+    cards.push({
+        question: question,
+    answer: answer,
+    cardElementQuestion: function(){ return `<div onclick="showAnswer(event)" class="col gy-4">
+    <div class="p-4 border bg-light" id="my-card">
+      <div id="icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <i onclick="remove(event)" class="fas fa-regular fa-xmark"></i>
+      </div>${this.question}</div>
+    </div>`},
+    cardElementAnswer: function() { return `<div onclick="showAnswer(event)" class="col gy-4">
+    <div class="p-4 border bg-light" id="my-card">
+      <div id="icon">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <i onclick="remove(event)" class="fas fa-regular fa-xmark"></i>
+      </div>${this.answer}</div>
+    </div>`}
+    });
+    document.getElementById('done').style.display = 'block';
+    setTimeout(hideDone,3000)
+    start()
+}
 
 var start = function() {
   var element = "";
