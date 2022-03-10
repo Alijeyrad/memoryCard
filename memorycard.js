@@ -16,37 +16,46 @@ const card = {
   </div>
   </div>`}
 }
-
 const cards = [card];
 
-var cardNum;
-
-var setModalText = function(event){
-    let text = event.path[2]['innerText'];
-    for (let i=0; i<cards.length; i++){
-        if(text==cards[i].question){
-            let q = cards[i].question;
-            let a = cards[i].answer;
-            document.getElementById('modalQuestion').innerHTML = q;
-            document.getElementById('modalAnswer').innerHTML = a;
-            cardNum = i;
-        }
+var start = function() {
+  var element = "";
+  for (let i = 0; i < cards.length; i++) {
+    if (i%2==0){
+        element += `<div class="row gx-5">${cards[i].cardElementQuestion()}</div>`
+    } else if (i%2==1) {
+        element = element.slice(0, -6)
+        element += cards[i].cardElementQuestion() + '</div>'
     }
+}
+if(element.length==0){
+    document.getElementById('container').innerHTML = '<h1>No Cards</h1>'
+} else {
+    document.getElementById('container').innerHTML = element;
+}
+}
+
+var cardNum;
+var setModalText = function(event){
+  let thisCardQ = event.path[2].children[1].innerHTML;
+  for (let i=0; i<cards.length; i++){
+    if(thisCardQ==cards[i].question || thisCardQ==cards[i].answer){
+      cardNum = i;
+    }
+  }
+  document.getElementById('modalQuestion').innerHTML = cards[cardNum].question;
+  document.getElementById('modalAnswer').innerHTML = cards[cardNum].answer;
 }
 
 var editCard = function(event){
-    event.preventDefault();
-    let questionEdited = event.target.form[0].value;
-    let answerEdited = event.target.form[1].value;
-
-    cards[cardNum].question = questionEdited;
-    document.getElementById('modalQuestion').innerHTML = '';
-    cards[cardNum].answer = answerEdited;
-    document.getElementById('modalAnswer').innerHTML = '';
-    questionEdited='';
-    answerEdited='';
-    start();
-    $('#editModal').modal('toggle');
+  console.log(cardNum);
+  let questionEdited = event.path[2].children[1].children[0][0].value;
+  let answerEdited = event.path[2].children[1].children[0][1].value;
+  cards[cardNum].question = questionEdited;
+  cards[cardNum].answer = answerEdited;
+  document.getElementById('modalForm').reset();
+  start();
+  $('#editModal').modal('toggle');
 }
 
 var showAnswer = function(event){
@@ -136,23 +145,3 @@ var addCard = function(event){
         start()
     }
 }
-
-var start = function() {
-  var element = "";
-  for (let i = 0; i < cards.length; i++) {
-    if (i%2==0){
-        element += `<div class="row gx-5">${cards[i].cardElementQuestion()}</div>`
-    } else if (i%2==1) {
-        element = element.slice(0, -6)
-        element += cards[i].cardElementQuestion() + '</div>'
-    }
-}
-if(element.length==0){
-    document.getElementById('container').innerHTML = '<h1>No Cards</h1>'
-} else {
-    document.getElementById('container').innerHTML = element;
-}
-}
-
-
-
