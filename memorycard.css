@@ -1,6 +1,7 @@
 html {
-    width: 100vw;
+  width: 100vw;
 }
+
 .container {
   text-align: center;
 }
@@ -15,91 +16,89 @@ html {
 }
 
 #row {
-    height: 100vh;
+  height: 100vh;
 }
 
 .col-md-4 {
-    text-align: center;
+  text-align: center;
 }
 
 .form-floating {
-    color: black;
+  color: black;
 }
 
 #icon {
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    flex-direction: row;
-    display: none;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  flex-direction: row;
+  display: none;
 }
 
 #icon i:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 #my-card:hover #icon {
-    display: flex;
+  display: flex;
 }
 
 #icon i {
-    padding-left: 10px;
-    opacity: 0.8;
-    cursor: pointer;
+  padding-left: 10px;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 #edit {
-    position: absolute;
-    bottom: 4px;
-    left: 8px;
-    flex-direction: row-reverse;
-    align-items: center;
-    display: none;
-    opacity: 0.8;
-    cursor: pointer;
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  flex-direction: row-reverse;
+  align-items: center;
+  display: none;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 #edit:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 #my-card:hover #edit {
-    display: flex;
+  display: flex;
 }
 
 .fa-angles-left {
-    padding-right: 4px;
+  padding-right: 4px;
 }
 
 #c-ans {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .fa-pen-to-square {
-    font-size: 19px;
+  font-size: 19px;
 }
 
 .fa-xmark {
-    color: rgb(175, 31, 31);
-    font-size: 23px;
+  color: rgb(175, 31, 31);
+  font-size: 23px;
 }
 
-@media (max-width:768px) {
-    #icon {
-        display: flex;
-    }
-    #edit {
-        display: flex;
-    }
+@media (max-width: 768px) {
+  #icon {
+    display: flex;
+  }
+  #edit {
+    display: flex;
+  }
 }
 
 #done {
-    color: rgba(34, 207, 34, 0.859);
-    display: none;
+  color: rgba(34, 207, 34, 0.859);
+  display: none;
 }
 
 #info {
-    color: rgb(175, 31, 31);
+  color: rgb(175, 31, 31);
 }
-
-
