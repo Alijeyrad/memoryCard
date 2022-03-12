@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./memorycard.css" />
     
   </head>
-  <body onload="start()">
+  <body onload="x.startApp()">
     <div class="row" id="row">
       <!-- this is the section for adding new cards -->
       <div class="col-md-4 p-4 bg-primary text-white" id="mc">
@@ -35,7 +35,7 @@
         </div>
         <h5 id="info"></h5>
         <br>
-        <button onclick="addCard(event)" type="submit" class="btn btn-light btn-lg">Add Card</button>
+        <button onclick="x.addCard(event)" type="submit" class="btn btn-light btn-lg">Add Card</button>
       </form>
       <br>
       <h5 id="done">Card Added <i class="fa-solid fa-circle-check"></i></h5>
@@ -91,7 +91,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button onclick="editCard(event)" type="button" class="btn btn-primary">Save changes</button>
+            <button onclick="x.editCard(event)" type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
